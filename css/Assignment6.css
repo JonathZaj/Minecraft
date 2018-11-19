@@ -44,7 +44,7 @@ background-repeat: no-repeat;
 
 }
 .sky{
-    background-color: rgb(155, 193, 249);
+    background-color: #9bc1f9;
 }
 .grass{
     background-image: url('../Images/grass.jpeg');
@@ -52,7 +52,6 @@ background-repeat: no-repeat;
 }
 .stone{
     background-image: url('../Images/stone.PNG');
-
 }
 .tree{
     background-image: url('../Images/Tree.png');
@@ -62,9 +61,10 @@ background-repeat: no-repeat;
 }
 .land{
     background-image: url('../Images/land.jpg');
+
 }
 .wood{
-    background-color: rgb(65, 55, 33);
+    background-image: url('../Images/wood.jpg');
 }
 .line{
     display: flex;
