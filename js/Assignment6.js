@@ -2,7 +2,9 @@ var Minecraft = {};
 
 Minecraft.Start = function () {
     Minecraft.initDisplay();
-    Minecraft.EraseWithShovel();
+    Minecraft.Use_shovel();
+    Minecraft.Use_axe();
+    Minecraft.Use_pickaxe()
 }
 Minecraft.initDisplay = function () {
     Minecraft.matrix = [
@@ -20,10 +22,10 @@ Minecraft.initDisplay = function () {
         ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'wood', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
         ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'wood', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
         ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'wood', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
-        ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'wood', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
-        ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'wood', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
-        ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'wood', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
-        ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'wood', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
+        ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'wood', 'sky', 'sky', 'sky', 'sky', 'stone', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
+        ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'wood', 'sky', 'sky', 'sky', 'sky', 'stone', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
+        ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'wood', 'sky', 'sky', 'sky', 'sky', 'stone', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
+        ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'wood', 'sky', 'sky', 'sky', 'sky', 'stone', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
         ['grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass', 'grass'],
         ['land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land'],
         ['land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land', 'land'],
@@ -46,17 +48,51 @@ Minecraft.initDisplay = function () {
     }
 
 }
-Minecraft.EraseWithShovel = function () {
-    var shovel = event.currentTarget;
-    shovel.classList.replace('land', 'sky');
-    
 
-    };
+Minecraft.Use_shovel = function () {
+    $('#shovel').on('click', function () {
+        $('.tree').off();
+        $('.wood').off();
+        $('.stone').off();
+        $('.land').on('click', function () {
+            $(this).removeClass('land');
+            $(this).addClass('sky');
+        });
+        $('.grass').on('click', function () {
+            $(this).removeClass('grass');
+            $(this).addClass('sky');
+        });
+    });
+}
 
-$('#shovel').on('click',function () {
-    $('.land.elt').on('click', EraseWithShovel);
-});
+Minecraft.Use_axe = function () {
+    $('#axe').on('click', function () {
+        $('.land').off();
+        $('.grass').off();
+        $('.stone').off();
+        $('.tree').on('click', function () {
+            $(this).removeClass('tree');
+            $(this).addClass('sky');
+        })
+        $('.wood').on('click', function () {
+            $(this).removeClass('wood');
+            $(this).addClass('sky');
+        })
+    })
+}
 
+Minecraft.Use_pickaxe = function () {
+    $('#pickaxe').on('click', function () {
+        $('.land').off();
+        $('.grass').off();
+        $('.tree').off();
+        $('.wood').off();
+        $('.stone').on('click', function () {
+            $(this).removeClass('stone');
+            $(this).addClass('sky');
+        })
+    })
+}
 
 
 Minecraft.Start();
