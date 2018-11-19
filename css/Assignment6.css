@@ -1,20 +1,42 @@
 body{
     height: 100vh;
 }
-.col-xs-2{
+.col-10{
+position: relative;
+left: 100px;
+}
+.col-2{
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    background-color: grey;
 }
 button{
     border: 1px solid black;   
     height: 50px;
-    width: 70px;
+    width: 55px;
 
+}
+#axe{
+background-image: url('../Images/Axe.png');
+background-size:contain; 
+background-repeat: no-repeat;
+}
+#pickaxe{
+    background-image: url('../Images/pickaxe.jpg');
+    background-size:contain; 
+    background-repeat: no-repeat;
+}
+#shovel{
+    background-image: url('../Images/shovel.jpeg'); 
+    background-size:contain; 
+    background-repeat: no-repeat;
 }
 .elt{
     height:40px;
     width:40px;
+    background-size: contain;
 
 }
 .elt:hover{
@@ -24,14 +46,18 @@ button{
 .sky{
     background-color: rgb(155, 193, 249);
 }
+.grass{
+    background-image: url('../Images/grass.jpeg');
+    background-repeat: no-repeat;
+}
 .tree{
-    background-color: rgb(143, 220, 90);
+    background-image: url('../Images/Tree.png');
 }
 .cloud{
     background-color: rgb(255, 255, 255);
 }
 .land{
-    background-color: rgb(122, 92, 68);
+    background-image: url('../Images/land.jpg');
 }
 .wood{
     background-color: rgb(65, 55, 33);
@@ -39,4 +65,5 @@ button{
 .line{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
