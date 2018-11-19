@@ -1,0 +1,42 @@
+body{
+    height: 100vh;
+}
+.col-xs-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+button{
+    border: 1px solid black;   
+    height: 50px;
+    width: 70px;
+
+}
+.elt{
+    height:40px;
+    width:40px;
+
+}
+.elt:hover{
+    border: 1px solid black;
+
+}
+.sky{
+    background-color: rgb(155, 193, 249);
+}
+.tree{
+    background-color: rgb(143, 220, 90);
+}
+.cloud{
+    background-color: rgb(255, 255, 255);
+}
+.land{
+    background-color: rgb(122, 92, 68);
+}
+.wood{
+    background-color: rgb(65, 55, 33);
+}
+.line{
+    display: flex;
+    flex-direction: row;
+}
