@@ -2,10 +2,11 @@ var Minecraft = {};
 
 Minecraft.Start = function () {
     Minecraft.initDisplay();
-    Minecraft.Use_shovel();
-    Minecraft.Use_axe();
-    Minecraft.Use_pickaxe();
-    // Minecraft.buffer();
+    Minecraft.use_shovel();
+    Minecraft.use_axe();
+    Minecraft.use_pickaxe();
+    Minecraft.use_inventory();
+    // Minecraft.inventory();
 }
 Minecraft.initDisplay = function () {
     Minecraft.matrix = [
@@ -50,7 +51,7 @@ Minecraft.initDisplay = function () {
 
 }
 
-Minecraft.Use_shovel = function () {
+Minecraft.use_shovel = function () {
     $('#shovel').on('click', function () {
         $('.tree').off();
         $('.wood').off();
@@ -58,19 +59,20 @@ Minecraft.Use_shovel = function () {
         $('.land').on('click', function () {
             $(this).removeClass('land');
             $(this).addClass('sky');
-            $('#buffer').css('background-image', "url('./Images/land.jpg')");
-
+            $("#inventory").removeClass().addClass('btn-inventory');
+            $('#inventory').addClass('land');
         });
         $('.grass').on('click', function () {
             $(this).removeClass('grass');
             $(this).addClass('sky');
-            $('#buffer').css('background-image', "url('./Images/land.jpg')");
+            $("#inventory").removeClass().addClass('btn-inventory');
+            $('#inventory').addClass('land');
 
         });
     });
 }
 
-Minecraft.Use_axe = function () {
+Minecraft.use_axe = function () {
     $('#axe').on('click', function () {
         $('.land').off();
         $('.grass').off();
@@ -78,19 +80,21 @@ Minecraft.Use_axe = function () {
         $('.tree').on('click', function () {
             $(this).removeClass('tree');
             $(this).addClass('sky');
-            $('#buffer').css('background-image', "url('./Images/Tree.png')");
+            $("#inventory").removeClass().addClass('btn-inventory');
+            $('#inventory').addClass('tree');
 
         })
         $('.wood').on('click', function () {
             $(this).removeClass('wood');
             $(this).addClass('sky');
-            $('#buffer').css('background-image', "url('./Images/wood.jpg')");
+            $("#inventory").removeClass().addClass('btn-inventory');
+            $('#inventory').addClass('wood');
 
         })
     })
 }
 
-Minecraft.Use_pickaxe = function () {
+Minecraft.use_pickaxe = function () {
     $('#pickaxe').on('click', function () {
         $('.land').off();
         $('.grass').off();
@@ -99,30 +103,41 @@ Minecraft.Use_pickaxe = function () {
         $('.stone').on('click', function () {
             $(this).removeClass('stone');
             $(this).addClass('sky');
-            $('#buffer').css('background-image', "url('./Images/stone.PNG')");
+            $("#inventory").removeClass().addClass('btn-inventory');
+            $('#inventory').addClass('stone');
 
         })
     })
 }
-
-// Minecraft.buffer = function () {
+Minecraft.use_inventory = function () {
+    $('.btn-inventory, btn-inventory.stone, btn-inventory.land, btn-inventory.grass, btn-inventory.tree, btn-inventory.wood').on('click', function () {
+        style = $(this).attr('class');
+        style = style.substring(13)
+        console.log(style);
+        $('.stone, .land, .grass, .tree, .wood').on('click', function () {
+            $(this).removeClass().addClass('elt')
+            $(this).addClass(style);
+        });
+    });
+}
+// Minecraft.inventory = function () {
 //     $('.land').on('click', function () {
-//         $('#buffer').css('background-image', "url('./Images/land.jpg')");
+//         $('#inventory').css('background-image', "url('./Images/land.jpg')");
 //     })
 //     $('.grass').on('click', function () {
-//         $('#buffer').css('background-image', "url('./Images/land.jpg')");
+//         $('#inventory').css('background-image', "url('./Images/land.jpg')");
 //     })
 //     $('.tree').on('click', function () {
-//         $('#buffer').css('background-image', "url('./Images/Tree.png')");
+//         $('#inventory').css('background-image', "url('./Images/Tree.png')");
 //     })
 //     $('.wood').on('click', function () {
-//         $('#buffer').css('background-image', "url('./Images/wood.jpg')");
+//         $('#inventory').css('background-image', "url('./Images/wood.jpg')");
 //     })
 //     $('.stone').on('click', function () {
-//         $('#buffer').css('background-image', "url('./Images/stone.PNG')");
+//         $('#inventory').css('background-image', "url('./Images/stone.PNG')");
 //     })
 //     $('.sky').on('click', function () {
-//         $('#buffer').css('background-image', "url('./Images/noir.jpg')");
+//         $('#inventory').css('background-image', "url('./Images/noir.jpg')");
 //     })
 // }
 

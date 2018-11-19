@@ -48,7 +48,6 @@ background-repeat: no-repeat;
 }
 .grass{
     background-image: url('../Images/grass.jpeg');
-    background-repeat: no-repeat;
 }
 .stone{
     background-image: url('../Images/stone.PNG');
