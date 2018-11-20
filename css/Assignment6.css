@@ -4,6 +4,7 @@ body{
 .col-10{
 position: relative;
 left: 100px;
+
 }
 .col-2{
     border: 1px solid black;
@@ -11,6 +12,7 @@ left: 100px;
     flex-direction: column;
     justify-content: space-evenly;
     background-color: grey;
+    overflow: hidden;
 }
 button:not(#new){
     border: 1px solid black;   
@@ -21,12 +23,12 @@ button:not(#new){
 
 }
 #new{
-
     width: 25vh;
     height: 10vh;
     font-family: 'pixel';
     font-size: 3vh;
     border: 1px solid black;  
+    margin-left: 3vh;
 
 }
 #axe{

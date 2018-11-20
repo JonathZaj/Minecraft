@@ -7,7 +7,7 @@ Minecraft.Start = function () {
     Minecraft.use_pickaxe();
     Minecraft.use_inventory();
     Minecraft.newGame();
-    // Minecraft.inventory();
+
 }
 Minecraft.initDisplay = function () {
     Minecraft.matrix = [
@@ -111,41 +111,21 @@ Minecraft.use_pickaxe = function () {
     })
 }
 Minecraft.use_inventory = function () {
-    $('.btn-inventory, btn-inventory.stone, btn-inventory.land, btn-inventory.grass, btn-inventory.tree, btn-inventory.wood').on('click', function () {
+        $(document).on('click','.btn-inventory, btn-inventory.stone, btn-inventory.land, btn-inventory.grass, btn-inventory.tree, btn-inventory.wood', function () {
         style = $(this).attr('class');
         style = style.substring(13)
-        console.log(style);
-        $('.sky').on('click', function () {
+        $('.sky').one('click', function () {
+            console.log('you clicked');
             $(this).removeClass().addClass('elt')
             $(this).addClass(style);
         });
     });
+    
 }
 Minecraft.newGame = function () {
     $('#new').click(function () {
       location.reload();
     });
   }
-// Minecraft.inventory = function () {
-//     $('.land').on('click', function () {
-//         $('#inventory').css('background-image', "url('./Images/land.jpg')");
-//     })
-//     $('.grass').on('click', function () {
-//         $('#inventory').css('background-image', "url('./Images/land.jpg')");
-//     })
-//     $('.tree').on('click', function () {
-//         $('#inventory').css('background-image', "url('./Images/Tree.png')");
-//     })
-//     $('.wood').on('click', function () {
-//         $('#inventory').css('background-image', "url('./Images/wood.jpg')");
-//     })
-//     $('.stone').on('click', function () {
-//         $('#inventory').css('background-image', "url('./Images/stone.PNG')");
-//     })
-//     $('.sky').on('click', function () {
-//         $('#inventory').css('background-image', "url('./Images/noir.jpg')");
-//     })
-// }
-
 
 Minecraft.Start();
