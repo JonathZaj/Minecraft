@@ -12,10 +12,21 @@ left: 100px;
     justify-content: space-evenly;
     background-color: grey;
 }
-button{
+button:not(#new){
     border: 1px solid black;   
-    height: 50px;
-    width: 55px;
+    height: 7vh;
+    width: 7vh;
+    margin-left: 12vh;
+    
+
+}
+#new{
+
+    width: 25vh;
+    height: 10vh;
+    font-family: 'pixel';
+    font-size: 3vh;
+    border: 1px solid black;  
 
 }
 #axe{
