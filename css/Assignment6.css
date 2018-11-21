@@ -3,10 +3,10 @@ body{
 }
 .col-10{
 position: relative;
-left: 100px;
-
+width: 80%;
 }
 .col-2{
+    width:20%;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
@@ -18,18 +18,17 @@ button:not(#new){
     border: 1px solid black;   
     height: 7vh;
     width: 7vh;
-    margin-left: 12vh;
+    margin-left: 10%;
     
 
 }
 #new{
-    width: 25vh;
-    height: 10vh;
+    width: 100%;
+    height: 8%;
     font-family: 'pixel';
     font-size: 3vh;
     border: 1px solid black;  
-    margin-left: 3vh;
-
+    overflow: hidden;
 }
 #axe{
 background-image: url('../Images/Axe.png');
@@ -77,6 +76,10 @@ background-repeat: no-repeat;
 }
 .wood{
     background-image: url('../Images/wood.jpg');
+}
+.empty{
+    background-image: url('../Images/noir.jpg');
+
 }
 .line{
     display: flex;
