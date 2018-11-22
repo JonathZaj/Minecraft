@@ -8,7 +8,9 @@ Minecraft.Start = function () {
     Minecraft.use_inventory();
     Minecraft.newGame();
     Minecraft.use_tree_inventory();
-
+    Minecraft.use_wood_inventory();
+    Minecraft.use_stone_inventory();
+    Minecraft.use_land_inventory();
 }
 Minecraft.initDisplay = function () {
     Minecraft.matrix = [
@@ -55,24 +57,21 @@ Minecraft.initDisplay = function () {
 
 Minecraft.use_shovel = function () {
     $('#shovel').on('click', function () {
-        $('.tree').off();
-        $('.wood').off();
-        $('.stone').off();
+        var landInventory = $("#land-inventory").text();
+        landInventory = parseInt(landInventory);
         $('.land.elt').on('click', function () {
             $(this).removeClass('land');
             $(this).addClass('sky');
-            var landInventory = $("#land-inventory").text();
-            landInventory = parseInt(landInventory);
-            landInventory++;
+            landInventory += 1;
             $("#land-inventory").text(landInventory);
+            $(event.target).off();
         });
         $('.grass.elt').on('click', function () {
             $(this).removeClass('grass');
             $(this).addClass('sky');
-            var landInventory = $("#land-inventory").text();
-            landInventory = parseInt(landInventory);
-            landInventory++;
+            landInventory += 1;
             $("#land-inventory").text(landInventory);
+            $(event.target).off();
 
         });
     });
@@ -80,53 +79,90 @@ Minecraft.use_shovel = function () {
 
 Minecraft.use_axe = function () {
     $('#axe').on('click', function () {
-        $('.land').off();
-        $('.grass').off();
-        $('.stone').off();
+        var treeInventory = $("#tree-inventory").text();
+        treeInventory = parseInt(treeInventory);
         $('.tree.elt').on('click', function () {
             $(this).removeClass('tree').addClass('sky');
-            var treeInventory = $("#tree-inventory").text();
-            treeInventory = parseInt(treeInventory);
-            treeInventory++;
+            treeInventory += 1;
             $("#tree-inventory").text(treeInventory);
+            $(event.target).off();
         })
+        var woodInventory = $("#wood-inventory").text();
+        woodInventory = parseInt(woodInventory);
         $('.wood.elt').on('click', function () {
-            $(this).removeClass('wood');
-            $(this).addClass('sky');
-            var woodInventory = $("#wood-inventory").text();
-            woodInventory = parseInt(woodInventory);
-            woodInventory++;
+            $(this).removeClass('wood').addClass('sky');
+            woodInventory += 1;
             $("#wood-inventory").text(woodInventory);
+            $(event.target).off();
         })
     })
 }
 
 Minecraft.use_pickaxe = function () {
     $('#pickaxe').on('click', function () {
-        $('.land').off();
-        $('.grass').off();
-        $('.tree').off();
-        $('.wood').off();
+        var stoneInventory = $("#stone-inventory").text();
+        stoneInventory = parseInt(stoneInventory);
         $('.stone.elt').on('click', function () {
             $(this).removeClass('stone');
             $(this).addClass('sky');
-            var stoneInventory = $("#stone-inventory").text();
-            stoneInventory = parseInt(stoneInventory);
-            stoneInventory++;
+            stoneInventory += 1;
             $("#stone-inventory").text(stoneInventory);
+            $(event.target).off();
         })
     })
 }
 
 Minecraft.use_tree_inventory = function () {
     $("#tree-inventory").click(function () {
-        $(".sky").click(function(){
-            var treeInventory = $("#tree-inventory").text();
-            treeInventory = parseInt(treeInventory);
-            if(treeInventory>0){
+        var treeInventory = $("#tree-inventory").text();
+        treeInventory = parseInt(treeInventory);
+        $(".sky").click(function () {
+            if (treeInventory > 0) {
                 $(this).removeClass().addClass('tree elt');
-                treeInventory--;
+                treeInventory -= 1;
                 $("#tree-inventory").text(treeInventory);
+            }
+        })
+    })
+}
+
+Minecraft.use_wood_inventory = function () {
+    $("#wood-inventory").click(function () {
+        var woodInventory = $("#wood-inventory").text();
+        woodInventory = parseInt(woodInventory);
+        $(".sky").click(function () {
+            if (woodInventory > 0) {
+                $(this).removeClass().addClass('wood elt');
+                woodInventory -= 1;
+                $("#wood-inventory").text(woodInventory);
+            }
+        })
+    })
+}
+
+Minecraft.use_stone_inventory = function () {
+    $("#stone-inventory").click(function () {
+        var stoneInventory = $("#stone-inventory").text();
+        stoneInventory = parseInt(stoneInventory);
+        $(".sky").click(function () {
+            if (stoneInventory > 0) {
+                $(this).removeClass().addClass('stone elt');
+                stoneInventory -= 1;
+                $("#stone-inventory").text(stoneInventory);
+            }
+        })
+    })
+}
+
+Minecraft.use_land_inventory = function () {
+    $("#land-inventory").click(function () {
+        var landInventory = $("#land-inventory").text();
+        landInventory = parseInt(landInventory);
+        $(".sky").click(function () {
+            if (landInventory > 0) {
+                $(this).removeClass().addClass('land elt');
+                landInventory -= 1;
+                $("#land-inventory").text(landInventory);
             }
         })
     })
