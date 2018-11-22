@@ -7,6 +7,7 @@ Minecraft.Start = function () {
     Minecraft.use_pickaxe();
     Minecraft.use_inventory();
     Minecraft.newGame();
+    Minecraft.use_tree_inventory();
 
 }
 Minecraft.initDisplay = function () {
@@ -57,7 +58,7 @@ Minecraft.use_shovel = function () {
         $('.tree').off();
         $('.wood').off();
         $('.stone').off();
-        $('.land').on('click', function () {
+        $('.land.elt').on('click', function () {
             $(this).removeClass('land');
             $(this).addClass('sky');
             var landInventory = $("#land-inventory").text();
@@ -65,7 +66,7 @@ Minecraft.use_shovel = function () {
             landInventory++;
             $("#land-inventory").text(landInventory);
         });
-        $('.grass').on('click', function () {
+        $('.grass.elt').on('click', function () {
             $(this).removeClass('grass');
             $(this).addClass('sky');
             var landInventory = $("#land-inventory").text();
@@ -82,15 +83,14 @@ Minecraft.use_axe = function () {
         $('.land').off();
         $('.grass').off();
         $('.stone').off();
-        $('.tree').on('click', function () {
-            $(this).removeClass('tree');
-            $(this).addClass('sky');
+        $('.tree.elt').on('click', function () {
+            $(this).removeClass('tree').addClass('sky');
             var treeInventory = $("#tree-inventory").text();
             treeInventory = parseInt(treeInventory);
             treeInventory++;
             $("#tree-inventory").text(treeInventory);
         })
-        $('.wood').on('click', function () {
+        $('.wood.elt').on('click', function () {
             $(this).removeClass('wood');
             $(this).addClass('sky');
             var woodInventory = $("#wood-inventory").text();
@@ -107,7 +107,7 @@ Minecraft.use_pickaxe = function () {
         $('.grass').off();
         $('.tree').off();
         $('.wood').off();
-        $('.stone').on('click', function () {
+        $('.stone.elt').on('click', function () {
             $(this).removeClass('stone');
             $(this).addClass('sky');
             var stoneInventory = $("#stone-inventory").text();
@@ -120,11 +120,11 @@ Minecraft.use_pickaxe = function () {
 
 Minecraft.use_tree_inventory = function () {
     $("#tree-inventory").click(function () {
-        $(".sky.elt").click(function(){
+        $(".sky").click(function(){
             var treeInventory = $("#tree-inventory").text();
             treeInventory = parseInt(treeInventory);
             if(treeInventory>0){
-                $(this).removeClass().addClass('elt').addClass("tree");
+                $(this).removeClass().addClass('tree elt');
                 treeInventory--;
                 $("#tree-inventory").text(treeInventory);
             }
