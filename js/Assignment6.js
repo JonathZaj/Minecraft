@@ -66,8 +66,7 @@ Minecraft.use_shovel = function () {
         $('.grass').on('click', function () {
             $(this).removeClass('grass');
             $(this).addClass('sky');
-            $("#inventory").removeClass().addClass('btn-inventory');
-            $('#inventory').addClass('land');
+            $("#inventory").removeClass().addClass('btn-inventory land');
 
         });
     });
@@ -81,16 +80,13 @@ Minecraft.use_axe = function () {
         $('.tree').on('click', function () {
             $(this).removeClass('tree');
             $(this).addClass('sky');
-            $("#inventory").removeClass().addClass('btn-inventory');
-            $('#inventory').addClass('tree');
-
+            $("#inventory").removeClass().addClass('btn-inventory tree');
         })
         $('.wood').on('click', function () {
             $(this).removeClass('wood');
             $(this).addClass('sky');
             $("#inventory").removeClass().addClass('btn-inventory');
             $('#inventory').addClass('wood');
-
         })
     })
 }
@@ -104,14 +100,12 @@ Minecraft.use_pickaxe = function () {
         $('.stone').on('click', function () {
             $(this).removeClass('stone');
             $(this).addClass('sky');
-            $("#inventory").removeClass().addClass('btn-inventory');
-            $('#inventory').addClass('stone');
-
+            $("#inventory").removeClass().addClass('btn-inventory stone');
         })
     })
 }
 Minecraft.use_inventory = function () {
-    $(document).on('click', '.btn-inventory, btn-inventory.stone, btn-inventory.land, btn-inventory.grass, btn-inventory.tree, btn-inventory.wood', function () {
+    $(".btn-inventory").on('click', function () {
         style = $(this).attr('class');
         style = style.substring(13)
         $('.sky').one('click', function () {
