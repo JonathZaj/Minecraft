@@ -105,11 +105,10 @@ Minecraft.use_pickaxe = function () {
     })
 }
 Minecraft.use_inventory = function () {
-    $(".btn-inventory").on('click', function () {
+    $('.btn-inventory, btn-inventory.stone, btn-inventory.land, btn-inventory.grass, btn-inventory.tree, btn-inventory.wood').on('click', function () {
         style = $(this).attr('class');
         style = style.substring(13)
         $('.sky').one('click', function () {
-            console.log('you clicked');
             $(this).removeClass().addClass('elt')
             $(this).addClass(style);
             $('.sky').off();
