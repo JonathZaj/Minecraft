@@ -12,7 +12,26 @@
 </head>
 
 <body>
-    <div class='accueil'>Salut</div>
+    <div class='accueil'>
+        <img src="./Images/logo.png" class='logo' alt="">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p style='text-align: center'>Ready to play ?</p>
+                <button type="button" class="btn" id='btn_newgame' data-dismiss="modal">New Game</button><button type="button"
+                    class="btn" id='btn_tutorial' data-dismiss="modal">Tutorial</button>
+
+            </div>
+            <div class="modal-tutorial mb-0 p-0">
+
+                <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/jritMw-79ck" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <button type="button" class="btn" id='btn_endtutorial' style='align-items:center' data-dismiss="modal">Thanks</button>
+
+            </div>
+        </div>
+    </div>
     <div class='container-fluid'>
         <div class='row'>
             <div class='col-10'></div>
@@ -35,9 +54,9 @@
                     <button id='shovel'></button>
                     <div>
                         <button id="land-inventory" class="land inventory">0</button>
+
                     </div>
                 </div>
-                <button id='inventory' class='btn-inventory empty'></button>
             </div>
         </div>
     </div>

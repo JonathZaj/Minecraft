@@ -1,6 +1,7 @@
 var Minecraft = {};
 
 Minecraft.Start = function () {
+    Minecraft.Modal();
     Minecraft.initDisplay();
     Minecraft.use_shovel();
     Minecraft.use_axe();
@@ -12,6 +13,22 @@ Minecraft.Start = function () {
     Minecraft.use_stone_inventory();
     Minecraft.use_land_inventory();
 }
+Minecraft.Modal=function(){
+$('#btn_newgame').click(function(){
+    $('.container-fluid').css('display','block');
+    $('.accueil').css('display','none');
+})
+$('#btn_tutorial').click(function(){
+    $('.modal-tutorial').css('display','block');
+    $('.modal-body').css('display','none');
+
+})
+$('#btn_endtutorial').click(function(){
+    $('.modal-body').css('display','block');
+    $('.modal-tutorial').css('display','none');
+})
+}
+
 Minecraft.initDisplay = function () {
     Minecraft.matrix = [
         ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
@@ -56,10 +73,7 @@ Minecraft.initDisplay = function () {
 }
 
 Minecraft.use_shovel = function () {
-    $("body").off();
     $('#shovel').on('click', function () {
-        $('#axe').off('click');
-        $('#pickaxe').off('click')
         var landInventory = $("#land-inventory").text();
         landInventory = parseInt(landInventory);
         $('.land.elt').on('click', function () {
@@ -69,6 +83,8 @@ Minecraft.use_shovel = function () {
             $("#land-inventory").text(landInventory);
             $(event.target).off();
         });
+    });
+    $('#shovel').on('click', function () {
         $('.grass.elt').on('click', function () {
             $(this).removeClass('grass');
             $(this).addClass('sky');
@@ -81,10 +97,7 @@ Minecraft.use_shovel = function () {
 }
 
 Minecraft.use_axe = function () {
-    $("body").off();
     $('#axe').on('click', function () {
-        $('#shovel').off('click');
-        $('#pickaxe').off('click');
         var treeInventory = $("#tree-inventory").text();
         treeInventory = parseInt(treeInventory);
         $('.tree.elt').on('click', function () {
@@ -105,10 +118,7 @@ Minecraft.use_axe = function () {
 }
 
 Minecraft.use_pickaxe = function () {
-    $("body").off();
     $('#pickaxe').on('click', function () {
-        $('#axe').off('click');
-        $('#shovel').off('click')
         var stoneInventory = $("#stone-inventory").text();
         stoneInventory = parseInt(stoneInventory);
         $('.stone.elt').on('click', function () {
