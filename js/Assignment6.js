@@ -56,9 +56,7 @@ Minecraft.initDisplay = function () {
 }
 
 Minecraft.use_shovel = function () {
-    $('.tree').off();
-    $('.wood').off();
-    $('.stone').off();
+    $("body").off();
     $('#shovel').on('click', function () {
         var landInventory = $("#land-inventory").text();
         landInventory = parseInt(landInventory);
@@ -81,9 +79,7 @@ Minecraft.use_shovel = function () {
 }
 
 Minecraft.use_axe = function () {
-    $('.land').off();
-    $('.grass').off();
-    $('.stone').off();
+    $("body").off();
     $('#axe').on('click', function () {
         var treeInventory = $("#tree-inventory").text();
         treeInventory = parseInt(treeInventory);
@@ -105,10 +101,7 @@ Minecraft.use_axe = function () {
 }
 
 Minecraft.use_pickaxe = function () {
-    $('.land').off();
-    $('.grass').off();
-    $('.tree').off();
-    $('.wood').off();
+    $("body").off();
     $('#pickaxe').on('click', function () {
         var stoneInventory = $("#stone-inventory").text();
         stoneInventory = parseInt(stoneInventory);
