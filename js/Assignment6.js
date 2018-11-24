@@ -1,7 +1,7 @@
 var Minecraft = {};
 
 Minecraft.Start = function () {
-    Minecraft.Modal();
+    Minecraft.displayModal();
     Minecraft.initDisplay();
     Minecraft.use_shovel();
     Minecraft.use_axe();
@@ -18,7 +18,7 @@ Minecraft.Start = function () {
 Minecraft.night = false;
 
 // Modal function
-Minecraft.Modal = function () {
+Minecraft.displayModal = function () {
     $('#btn_newgame').click(function () {
         $('.container-fluid').css('display', 'block');
         $('.accueil').css('display', 'none');
