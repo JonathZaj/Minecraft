@@ -1,6 +1,9 @@
 body{
     font-family: 'Press Start 2P', cursive;
     color: black;
+    background-image: url('../Images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .accueil{
     background-image: url('../Images/fond.jpg');
