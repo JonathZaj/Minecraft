@@ -107,28 +107,16 @@ Minecraft.use_shovel = function () {
         $('.tree.elt').off('click');
         $('.wood.elt').off('click');
         $('.stone.elt').off('click');
-        $('.land.elt').on('click', function () {
+        $('.land.elt, .grass.elt').on('click', function () {
             if (Minecraft.night == false) {
-                $(this).removeClass('land').addClass('sky');
+                $(this).removeClass('land grass').addClass('sky');
             }
             else {
-                $(this).removeClass('land').addClass('night-sky');
+                $(this).removeClass('land grass').addClass('night-sky');
             }
             landInventory += 1;
             $("#land-inventory").text(landInventory);
             $(event.target).off();
-        });
-        $('.grass.elt').on('click', function () {
-            if (Minecraft.night == false) {
-                $(this).removeClass('grass').addClass('sky');
-            }
-            else {
-                $(this).removeClass('grass').addClass('night-sky');
-            }
-            landInventory += 1;
-            $("#land-inventory").text(landInventory);
-            $(event.target).off();
-
         });
     });
 }
@@ -154,6 +142,15 @@ Minecraft.use_axe = function () {
             $("#tree-inventory").text(treeInventory);
             $(event.target).off('click');
         })
+    })
+    $('#axe').on('click', function () {
+        $(".col-2 button").removeClass("selected-item");
+        $(this).addClass("selected-item");
+        var woodInventory = $("#wood-inventory").text();
+        woodInventory = parseInt(woodInventory);
+        $('.stone.elt').off('click');
+        $('.land.elt').off('click');
+        $('.grass.elt').off('click');
         $('.wood.elt').on('click', function () {
             if (Minecraft.night == false) {
                 $(this).removeClass('wood').addClass('sky');
@@ -164,8 +161,8 @@ Minecraft.use_axe = function () {
             woodInventory += 1;
             $("#wood-inventory").text(woodInventory);
             $(event.target).off();
-        });
-    });
+        })
+    })
 }
 
 // Select and use the pickaxe
