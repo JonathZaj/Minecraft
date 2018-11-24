@@ -100,6 +100,8 @@ Minecraft.changeToDay = function () {
 // Select and use the shovel
 Minecraft.use_shovel = function () {
     $('#shovel').on('click', function () {
+        $(".col-2 button").removeClass("selected-item");
+        $(this).addClass("selected-item");
         var landInventory = $("#land-inventory").text();
         landInventory = parseInt(landInventory);
         $('.tree.elt').off('click');
@@ -118,6 +120,8 @@ Minecraft.use_shovel = function () {
         });
     });
     $('#shovel').on('click', function () {
+        $(".col-2 button").removeClass("selected-item");
+        $(this).addClass("selected-item");
         $('.tree.elt').off('click');
         $('.wood.elt').off('click');
         $('.stone.elt').off('click');
