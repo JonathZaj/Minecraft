@@ -89,7 +89,7 @@ Minecraft.changeToNight = function () {
 }
 
 // Day button
-Minecraft.changeToDay = function(){
+Minecraft.changeToDay = function () {
     $("#day-btn").click(function () {
         Minecraft.night = false;
         $(".night-sky").removeClass("night-sky").addClass("sky");
@@ -100,7 +100,6 @@ Minecraft.changeToDay = function(){
 // Select and use the shovel
 Minecraft.use_shovel = function () {
     $('#shovel').on('click', function () {
-        $(document).off();
         var landInventory = $("#land-inventory").text();
         landInventory = parseInt(landInventory);
         $('.tree.elt').off('click');
@@ -140,7 +139,8 @@ Minecraft.use_shovel = function () {
 // Select and use the axe
 Minecraft.use_axe = function () {
     $('#axe').on('click', function () {
-        $(document).off();
+        $(".col-2 button").removeClass("selected-item");
+        $(this).addClass("selected-item");
         var treeInventory = $("#tree-inventory").text();
         treeInventory = parseInt(treeInventory);
         $('.stone.elt').off('click');
@@ -159,6 +159,8 @@ Minecraft.use_axe = function () {
         })
     })
     $('#axe').on('click', function () {
+        $(".col-2 button").removeClass("selected-item");
+        $(this).addClass("selected-item");
         var woodInventory = $("#wood-inventory").text();
         woodInventory = parseInt(woodInventory);
         $('.stone.elt').off('click');
@@ -181,7 +183,8 @@ Minecraft.use_axe = function () {
 // Select and use the pickaxe
 Minecraft.use_pickaxe = function () {
     $('#pickaxe').on('click', function () {
-        $(document).off();
+        $(".col-2 button").removeClass("selected-item");
+        $(this).addClass("selected-item");
         var stoneInventory = $("#stone-inventory").text();
         stoneInventory = parseInt(stoneInventory);
         $('.tree.elt').off('click');
@@ -205,6 +208,8 @@ Minecraft.use_pickaxe = function () {
 // Select and use the leaf element
 Minecraft.use_tree_inventory = function () {
     $("#tree-inventory").click(function () {
+        $(".col-2 button").removeClass("selected-item");
+        $(this).addClass("selected-item");
         $('.stone.elt').off('click');
         $('.land.elt').off('click');
         $('.grass.elt').off('click');
@@ -226,6 +231,8 @@ Minecraft.use_tree_inventory = function () {
 // Select and use the trunk element
 Minecraft.use_wood_inventory = function () {
     $("#wood-inventory").click(function () {
+        $(".col-2 button").removeClass("selected-item");
+        $(this).addClass("selected-item");
         $('.stone.elt').off('click');
         $('.land.elt').off('click');
         $('.grass.elt').off('click');
@@ -247,6 +254,8 @@ Minecraft.use_wood_inventory = function () {
 // Select and use the stone element
 Minecraft.use_stone_inventory = function () {
     $("#stone-inventory").click(function () {
+        $(".col-2 button").removeClass("selected-item");
+        $(this).addClass("selected-item");
         $('.stone.elt').off('click');
         $('.land.elt').off('click');
         $('.grass.elt').off('click');
@@ -268,6 +277,8 @@ Minecraft.use_stone_inventory = function () {
 // Select and use the ground element
 Minecraft.use_land_inventory = function () {
     $("#land-inventory").click(function () {
+        $(".col-2 button").removeClass("selected-item");
+        $(this).addClass("selected-item");
         $('.stone.elt').off('click');
         $('.land.elt').off('click');
         $('.grass.elt').off('click');
