@@ -153,7 +153,11 @@ Minecraft.use_pickaxe = function () {
 
 Minecraft.use_tree_inventory = function () {
     $("#tree-inventory").click(function () {
-        $(document).off();
+        $('.stone.elt').off('click');
+        $('.land.elt').off('click');
+        $('.grass.elt').off('click');
+        $('.tree.elt').off('click');
+        $('.wood.elt').off('click');
         var treeInventory = $("#tree-inventory").text();
         treeInventory = parseInt(treeInventory);
         $(".sky").click(function () {
@@ -169,7 +173,11 @@ Minecraft.use_tree_inventory = function () {
 
 Minecraft.use_wood_inventory = function () {
     $("#wood-inventory").click(function () {
-        $(document).off();
+        $('.stone.elt').off('click');
+        $('.land.elt').off('click');
+        $('.grass.elt').off('click');
+        $('.tree.elt').off('click');
+        $('.wood.elt').off('click');
         var woodInventory = $("#wood-inventory").text();
         woodInventory = parseInt(woodInventory);
         $(".sky").click(function () {
@@ -185,7 +193,11 @@ Minecraft.use_wood_inventory = function () {
 
 Minecraft.use_stone_inventory = function () {
     $("#stone-inventory").click(function () {
-        $(document).off();
+        $('.stone.elt').off('click');
+        $('.land.elt').off('click');
+        $('.grass.elt').off('click');
+        $('.tree.elt').off('click');
+        $('.wood.elt').off('click');
         var stoneInventory = $("#stone-inventory").text();
         stoneInventory = parseInt(stoneInventory);
         $(".sky").click(function () {
@@ -201,7 +213,11 @@ Minecraft.use_stone_inventory = function () {
 
 Minecraft.use_land_inventory = function () {
     $("#land-inventory").click(function () {
-        $(document).off();
+        $('.stone.elt').off('click');
+        $('.land.elt').off('click');
+        $('.grass.elt').off('click');
+        $('.tree.elt').off('click');
+        $('.wood.elt').off('click');
         var landInventory = $("#land-inventory").text();
         landInventory = parseInt(landInventory);
         $(".sky").click(function () {
