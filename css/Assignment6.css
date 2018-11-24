@@ -97,6 +97,10 @@ button:not(#new,.btn){
 .sky{
     background-color: #9bc1f9;
 }
+.night-sky{
+    background-color: #131862;
+}
+
 .grass{
     background-image: url('../Images/grass.jpeg');
 }
@@ -108,6 +112,9 @@ button:not(#new,.btn){
 }
 .cloud{
     background-color: rgb(255, 255, 255);
+}
+.night-cloud{
+    background-color: #465b70;
 }
 .land{
     background-image: url('../Images/land.jpg');

@@ -11,6 +11,7 @@ Minecraft.Start = function () {
     Minecraft.use_wood_inventory();
     Minecraft.use_stone_inventory();
     Minecraft.use_land_inventory();
+    Minecraft.changeTheme();
 }
 Minecraft.Modal = function () {
     $('#btn_newgame').click(function () {
@@ -228,6 +229,13 @@ Minecraft.use_land_inventory = function () {
                 $(event.target).off();
             }
         })
+    })
+}
+
+Minecraft.changeTheme = function(){
+    $("#day-night").click(function(){
+        $(".sky").toggleClass("night-sky");
+        $(".cloud").toggleClass("night-cloud");
     })
 }
 
