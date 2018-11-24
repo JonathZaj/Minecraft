@@ -118,13 +118,6 @@ Minecraft.use_shovel = function () {
             $("#land-inventory").text(landInventory);
             $(event.target).off();
         });
-    });
-    $('#shovel').on('click', function () {
-        $(".col-2 button").removeClass("selected-item");
-        $(this).addClass("selected-item");
-        $('.tree.elt').off('click');
-        $('.wood.elt').off('click');
-        $('.stone.elt').off('click');
         $('.grass.elt').on('click', function () {
             if (Minecraft.night == false) {
                 $(this).removeClass('grass').addClass('sky');
@@ -161,15 +154,6 @@ Minecraft.use_axe = function () {
             $("#tree-inventory").text(treeInventory);
             $(event.target).off('click');
         })
-    })
-    $('#axe').on('click', function () {
-        $(".col-2 button").removeClass("selected-item");
-        $(this).addClass("selected-item");
-        var woodInventory = $("#wood-inventory").text();
-        woodInventory = parseInt(woodInventory);
-        $('.stone.elt').off('click');
-        $('.land.elt').off('click');
-        $('.grass.elt').off('click');
         $('.wood.elt').on('click', function () {
             if (Minecraft.night == false) {
                 $(this).removeClass('wood').addClass('sky');
@@ -180,8 +164,8 @@ Minecraft.use_axe = function () {
             woodInventory += 1;
             $("#wood-inventory").text(woodInventory);
             $(event.target).off();
-        })
-    })
+        });
+    });
 }
 
 // Select and use the pickaxe
