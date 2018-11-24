@@ -1,5 +1,4 @@
 body{
-    height: 100vh;
     font-family: 'Press Start 2P', cursive;
     color: black;
 }
@@ -60,36 +59,25 @@ button{
 }
 
 #new{
-    width: 120px;
-    height: 80px;
-    font-size: 25px;
     border: 1px solid black;  
     overflow: hidden;
 }
 #axe{
-    height:60px;
-    width:60px;
     background-image: url('../Images/Axe.png');
     background-size:contain; 
     background-repeat: no-repeat;
 }
 #pickaxe{
-    height:60px;
-    width:60px;
     background-image: url('../Images/pickaxe.jpg');
     background-size:contain; 
     background-repeat: no-repeat;
 }
 #shovel{
-    height:60px;
-    width:60px;
     background-image: url('../Images/shovel.jpeg'); 
     background-size:contain; 
     background-repeat: no-repeat;
 }
 .elt{
-    height: 42px;
-    width: 42px;
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -138,8 +126,6 @@ button{
 }
 
 .inventory{
-    height:60px;
-    width:60px;
     background-size: contain;
     color: white;
     font-family: 'Press Start 2P', cursive;
@@ -147,4 +133,80 @@ button{
 }
 .selected-item{
     border: 4px solid red;
+}
+@media only screen and (max-width: 1500px) {
+    .elt {
+        height: 30px;
+        width: 30px;
+    }
+    .inventory,#axe,#pickaxe,#shovel {
+        width:60px;
+        height: 60px;
+    }
+    #new,#day-btn,#night-btn  {
+        width: 120px;
+        height: 60px;
+        font-size: 20px;
+    }
+    .logo{
+        margin-left: 350px;
+        width: 600px;
+    }
+}
+@media only screen and (max-width: 1250px) {
+    .elt {
+        height: 30px;
+        width: 30px;
+    }
+    .inventory,#axe,#pickaxe,#shovel {
+        width:45px;
+        height: 45px;
+    }  
+    #new,#day-btn,#night-btn  {
+        width: 100px;
+        height: 60px;
+        font-size: 15px;
+    } 
+    .logo{
+        margin-left:200px;
+        width: 400px;
+    }
+}
+@media only screen and (max-width: 840px) {
+    .elt {
+        height: 20px;
+        width: 20px;
+    }
+    .inventory,#axe,#pickaxe,#shovel {
+        width:35px;
+        height: 35px;
+    }  
+    #new,#day-btn,#night-btn  {
+        width: 80px;
+        height: 40px;
+        font-size: 10px;
+    } 
+    .logo{
+        margin-left: 75px;
+        width: 400px;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .elt {
+        height: 15px;
+        width: 15px;
+    }
+    .inventory,#axe,#pickaxe,#shovel {
+        width:20px;
+        height:20px;
+    }  
+    #new,#day-btn,#night-btn {
+        width: 60px;
+        height: 20px;
+        font-size: 5px;
+    } 
+    .logo{
+        margin-left: 25px;
+        width: 400px;
+    }
 }
