@@ -11,8 +11,13 @@ Minecraft.Start = function () {
     Minecraft.use_wood_inventory();
     Minecraft.use_stone_inventory();
     Minecraft.use_land_inventory();
-    Minecraft.changeTheme();
+    Minecraft.changeToNight();
+    Minecraft.changeToDay();
 }
+
+Minecraft.night = false;
+
+// Modal function
 Minecraft.Modal = function () {
     $('#btn_newgame').click(function () {
         $('.container-fluid').css('display', 'block');
@@ -29,6 +34,7 @@ Minecraft.Modal = function () {
     })
 }
 
+// Basic page
 Minecraft.initDisplay = function () {
     Minecraft.matrix = [
         ['sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky', 'sky'],
@@ -72,6 +78,26 @@ Minecraft.initDisplay = function () {
 
 }
 
+
+// Night button
+Minecraft.changeToNight = function () {
+    $("#night-btn").click(function () {
+        Minecraft.night = true;
+        $(".sky").removeClass("sky").addClass("night-sky");
+        $(".cloud").removeClass("cloud").addClass("night-cloud");
+    })
+}
+
+// Day button
+Minecraft.changeToDay = function(){
+    $("#day-btn").click(function () {
+        Minecraft.night = false;
+        $(".night-sky").removeClass("night-sky").addClass("sky");
+        $(".night-cloud").removeClass("night-cloud").addClass("cloud");
+    })
+}
+
+// Select and use the shovel
 Minecraft.use_shovel = function () {
     $('#shovel').on('click', function () {
         $(document).off();
@@ -81,8 +107,12 @@ Minecraft.use_shovel = function () {
         $('.wood.elt').off('click');
         $('.stone.elt').off('click');
         $('.land.elt').on('click', function () {
-            $(this).removeClass('land');
-            $(this).addClass('sky');
+            if (Minecraft.night == false) {
+                $(this).removeClass('land').addClass('sky');
+            }
+            else {
+                $(this).removeClass('land').addClass('night-sky');
+            }
             landInventory += 1;
             $("#land-inventory").text(landInventory);
             $(event.target).off();
@@ -93,8 +123,12 @@ Minecraft.use_shovel = function () {
         $('.wood.elt').off('click');
         $('.stone.elt').off('click');
         $('.grass.elt').on('click', function () {
-            $(this).removeClass('grass');
-            $(this).addClass('sky');
+            if (Minecraft.night == false) {
+                $(this).removeClass('grass').addClass('sky');
+            }
+            else {
+                $(this).removeClass('grass').addClass('night-sky');
+            }
             landInventory += 1;
             $("#land-inventory").text(landInventory);
             $(event.target).off();
@@ -103,6 +137,7 @@ Minecraft.use_shovel = function () {
     });
 }
 
+// Select and use the axe
 Minecraft.use_axe = function () {
     $('#axe').on('click', function () {
         $(document).off();
@@ -112,7 +147,12 @@ Minecraft.use_axe = function () {
         $('.land.elt').off('click');
         $('.grass.elt').off('click');
         $('.tree.elt').on('click', function () {
-            $(this).removeClass('tree').addClass('sky');
+            if (Minecraft.night == false) {
+                $(this).removeClass('tree').addClass('sky');
+            }
+            else {
+                $(this).removeClass('tree').addClass('night-sky');
+            }
             treeInventory += 1;
             $("#tree-inventory").text(treeInventory);
             $(event.target).off('click');
@@ -125,7 +165,12 @@ Minecraft.use_axe = function () {
         $('.land.elt').off('click');
         $('.grass.elt').off('click');
         $('.wood.elt').on('click', function () {
-            $(this).removeClass('wood').addClass('sky');
+            if (Minecraft.night == false) {
+                $(this).removeClass('wood').addClass('sky');
+            }
+            else {
+                $(this).removeClass('wood').addClass('night-sky');
+            }
             woodInventory += 1;
             $("#wood-inventory").text(woodInventory);
             $(event.target).off();
@@ -133,6 +178,7 @@ Minecraft.use_axe = function () {
     })
 }
 
+// Select and use the pickaxe
 Minecraft.use_pickaxe = function () {
     $('#pickaxe').on('click', function () {
         $(document).off();
@@ -143,8 +189,12 @@ Minecraft.use_pickaxe = function () {
         $('.land.elt').off('click');
         $('.grass.elt').off('click');
         $('.stone.elt').on('click', function () {
-            $(this).removeClass('stone');
-            $(this).addClass('sky');
+            if (Minecraft.night == false) {
+                $(this).removeClass('stone').addClass('sky');
+            }
+            else {
+                $(this).removeClass('stone').addClass('night-sky');
+            }
             stoneInventory += 1;
             $("#stone-inventory").text(stoneInventory);
             $(event.target).off();
@@ -152,6 +202,7 @@ Minecraft.use_pickaxe = function () {
     })
 }
 
+// Select and use the leaf element
 Minecraft.use_tree_inventory = function () {
     $("#tree-inventory").click(function () {
         $('.stone.elt').off('click');
@@ -161,7 +212,7 @@ Minecraft.use_tree_inventory = function () {
         $('.wood.elt').off('click');
         var treeInventory = $("#tree-inventory").text();
         treeInventory = parseInt(treeInventory);
-        $(".sky").click(function () {
+        $(".sky, .night-sky").click(function () {
             if (treeInventory > 0) {
                 $(this).removeClass().addClass('tree elt');
                 treeInventory -= 1;
@@ -172,6 +223,7 @@ Minecraft.use_tree_inventory = function () {
     })
 }
 
+// Select and use the trunk element
 Minecraft.use_wood_inventory = function () {
     $("#wood-inventory").click(function () {
         $('.stone.elt').off('click');
@@ -181,7 +233,7 @@ Minecraft.use_wood_inventory = function () {
         $('.wood.elt').off('click');
         var woodInventory = $("#wood-inventory").text();
         woodInventory = parseInt(woodInventory);
-        $(".sky").click(function () {
+        $(".sky, .night-sky").click(function () {
             if (woodInventory > 0) {
                 $(this).removeClass().addClass('wood elt');
                 woodInventory -= 1;
@@ -192,6 +244,7 @@ Minecraft.use_wood_inventory = function () {
     })
 }
 
+// Select and use the stone element
 Minecraft.use_stone_inventory = function () {
     $("#stone-inventory").click(function () {
         $('.stone.elt').off('click');
@@ -201,7 +254,7 @@ Minecraft.use_stone_inventory = function () {
         $('.wood.elt').off('click');
         var stoneInventory = $("#stone-inventory").text();
         stoneInventory = parseInt(stoneInventory);
-        $(".sky").click(function () {
+        $(".sky, .night-sky").click(function () {
             if (stoneInventory > 0) {
                 $(this).removeClass().addClass('stone elt');
                 stoneInventory -= 1;
@@ -212,6 +265,7 @@ Minecraft.use_stone_inventory = function () {
     })
 }
 
+// Select and use the ground element
 Minecraft.use_land_inventory = function () {
     $("#land-inventory").click(function () {
         $('.stone.elt').off('click');
@@ -221,7 +275,7 @@ Minecraft.use_land_inventory = function () {
         $('.wood.elt').off('click');
         var landInventory = $("#land-inventory").text();
         landInventory = parseInt(landInventory);
-        $(".sky").click(function () {
+        $(".sky, .night-sky").click(function () {
             if (landInventory > 0) {
                 $(this).removeClass().addClass('land elt');
                 landInventory -= 1;
@@ -232,13 +286,7 @@ Minecraft.use_land_inventory = function () {
     })
 }
 
-Minecraft.changeTheme = function(){
-    $("#day-night").click(function(){
-        $(".sky").toggleClass("night-sky");
-        $(".cloud").toggleClass("night-cloud");
-    })
-}
-
+// Reload the game
 Minecraft.newGame = function () {
     $('#new').click(function () {
         location.reload();

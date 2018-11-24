@@ -52,7 +52,11 @@ button:not(#new,.btn){
     width: 150px;
     border: 1px solid black;
     margin: 40px;
-    background-color: rgb(186, 178, 175)
+    background-color: rgb(186, 178, 175);
+}
+
+button{
+    overflow: auto;
 }
 
 #new{
